@@ -1,42 +1,64 @@
-This project focuses on analyzing and forecasting Italy’s 2016 total solar generation and electricity load using the ARIMA (AutoRegressive Integrated Moving Average) model. The analysis includes data preprocessing, visualization, stationarity testing, model building, and forecasting.
 
-📊 Overview
+# ⏳ Time Series Analysis and Forecasting with ARIMA
 
-The dataset contains hourly records of electricity load and solar generation throughout 2016. The project walks through every step of a complete time series analysis pipeline — from cleaning and visualization to modeling and evaluation.
+This project focuses on analyzing and forecasting **Italy’s 2016 total solar generation** and **electricity load** using the **ARIMA (AutoRegressive Integrated Moving Average)** model. The analysis includes data preprocessing, visualization, stationarity testing, model building, and forecasting.
 
-🧩 Steps Implemented
+## 📊 Overview
 
-Data Loading and Cleaning
+The dataset contains hourly records of electricity **load** and **solar generation** throughout 2016. The project walks through every step of a complete time series analysis pipeline — from cleaning and visualization to modeling and evaluation.
 
-Handled missing values using forward fill (ffill).
+## 🧩 Steps Implemented
 
-Converted utc_timestamp to datetime format.
+1. **Data Loading and Cleaning**
 
-Exploratory Data Analysis
+   * Handled missing values using forward fill (`ffill`).
+   * Converted `utc_timestamp` to datetime format.
 
-Visualized load and solar generation trends over time.
+2. **Exploratory Data Analysis**
 
-Observed daily and seasonal patterns.
+   * Visualized load and solar generation trends over time.
+   * Observed daily and seasonal patterns.
 
-Stationarity Check
+3. **Stationarity Check**
 
-Performed the Augmented Dickey-Fuller (ADF) test.
+   * Performed the **Augmented Dickey-Fuller (ADF)** test.
+   * Both `IT_load_new` and `IT_solar_generation` were found to be stationary.
 
-Both IT_load_new and IT_solar_generation were found to be stationary.
+4. **Model Building (ARIMA)**
 
-Model Building (ARIMA)
+   * Determined ARIMA parameters `(p, d, q)` using **ACF** and **PACF** plots.
+   * Built ARIMA models and evaluated them on test data (80/20 split).
 
-Determined ARIMA parameters (p, d, q) using ACF and PACF plots.
+5. **Model Evaluation**
 
-Built ARIMA models and evaluated them on test data (80/20 split).
+   * Calculated **Root Mean Squared Error (RMSE)** for model performance.
+   * Compared actual vs predicted values visually.
 
-Model Evaluation
+## 📈 Results Summary
 
-Calculated Root Mean Squared Error (RMSE) for model performance.
+| Time Series         | Best ARIMA Order | RMSE   |
+| ------------------- | ---------------- | ------ |
+| IT_load_new         | (2,0,2)          | ≈ 7715 |
+| IT_solar_generation | (2,0,2)          | ≈ 2486 |
 
-Compared actual vs predicted values visually.
+Both models captured the general patterns and fluctuations well, with moderate accuracy reflected by the RMSE values.
 
-📈 Results Summary
-Time Series	Best ARIMA Order	RMSE
-IT_load_new	(2,0,2)	≈ 7715
-IT_solar_generation	(2,0,2)	≈ 2486
+## 🛠️ Technologies Used
+
+* **Python**
+* **Pandas**, **NumPy**
+* **Matplotlib**
+* **Statsmodels**
+* **Scikit-learn**
+
+## 📅 Dataset
+
+**File:** `TimeSeries_TotalSolarGen_and_Load_IT_2016.csv`
+Contains hourly electricity load and solar generation data for Italy during 2016.
+
+## 📚 Key Learnings
+
+* How to make time series data stationary for ARIMA modeling.
+* How to interpret ACF and PACF plots for parameter tuning.
+* How to evaluate and visualize ARIMA model forecasts.
+
