@@ -1,37 +1,40 @@
-# Energy-Demand-Forecasting
-Time-Series Forecasting Using ARIMA
-This project focuses on analyzing and forecasting Italy’s 2016 total solar generation and electricity load using the ARIMA (AutoRegressive Integrated Moving Average) model.
+This project focuses on analyzing and forecasting Italy’s 2016 total solar generation and electricity load using the ARIMA (AutoRegressive Integrated Moving Average) model. The analysis includes data preprocessing, visualization, stationarity testing, model building, and forecasting.
 
-📊 Project Overview
+📊 Overview
 
-The dataset contains hourly records of electricity load and solar generation throughout 2016. The project walks through:
-
-Data preprocessing and handling missing values
-Time series visualization
-Stationarity testing using the Augmented Dickey-Fuller (ADF) test
-Identification of ARIMA parameters (p, d, q) using ACF and PACF plots
-Model fitting and prediction for both series
-Model performance evaluation using Root Mean Squared Error (RMSE)
-Visualization of actual vs predicted values
+The dataset contains hourly records of electricity load and solar generation throughout 2016. The project walks through every step of a complete time series analysis pipeline — from cleaning and visualization to modeling and evaluation.
 
 🧩 Steps Implemented
 
 Data Loading and Cleaning
-Handle missing values using forward-fill.
-Convert timestamps to datetime objects.
+
+Handled missing values using forward fill (ffill).
+
+Converted utc_timestamp to datetime format.
+
 Exploratory Data Analysis
-Visualize load and solar generation trends over time.
-Identify daily and seasonal patterns.
+
+Visualized load and solar generation trends over time.
+
+Observed daily and seasonal patterns.
+
 Stationarity Check
-Apply the Augmented Dickey-Fuller test to confirm stationarity.
-Model Building
-Determine ARIMA parameters via ACF and PACF plots.
-Fit ARIMA models with multiple parameter combinations.
+
+Performed the Augmented Dickey-Fuller (ADF) test.
+
+Both IT_load_new and IT_solar_generation were found to be stationary.
+
+Model Building (ARIMA)
+
+Determined ARIMA parameters (p, d, q) using ACF and PACF plots.
+
+Built ARIMA models and evaluated them on test data (80/20 split).
 
 Model Evaluation
 
-Compute RMSE to assess prediction accuracy.
-Plot actual vs predicted values for comparison.
+Calculated Root Mean Squared Error (RMSE) for model performance.
+
+Compared actual vs predicted values visually.
 
 📈 Results Summary
 Time Series	Best ARIMA Order	RMSE
